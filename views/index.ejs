@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Login Page</title>
+    <title>EJS Project</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -21,42 +21,75 @@
     <h3>List of Students</h3>
     <br />
 
-    <li>
+    <ul>
       <% for(var i = 0; i < data.length; i++) { %>
-
-      <h5>
-        <ul>
-          Name: 
-          <% if(typeof data[i].name &&
-           data[i].age && data[i].hobbies ===
-          'undefined') { %> 
+        <% if(typeof data[i].name &&
+        data[i].age && data[i].hobbies ===
+       'undefined') { %> 
+        <h5>
+          <ul>
             bad data 
-            <% } else { %> 
-              <%= data[i].name %> 
-            <% } %>
+          </ul>
+        </h5>
+         
+         <% } else { %>
+          <h5>
+            <ul>
+              Name: <%= data[i].name %> 
+            </ul>
+          </h5>
+           
+        <% }%>
+      
+        <% if(typeof data[i].name &&
+        data[i].age && data[i].hobbies ===
+       'undefined') { %> 
+        <ul>
+          bad data 
+         
         </ul>
-      </h5>
-      <ul>
-        Age: 
-        <% if(typeof data[i].age === 'undefined') { %> 
-          age is missing 
-          <% } else { %> 
-            <%= data[i].age %> 
-          <% } %>
-      </ul>
-      <ul>
-        Hobbies: 
-        <% if(typeof data[i].hobbies === 'undefined') { %> 
-          hobbies is missing 
-          <% } else { %> 
-            <%= data[i].hobbies %> 
-          <% } %>
-      </ul>
+         
+         <% } else if(typeof data[i].age === 'undefined') { %>
+          <ul>
+            Age:  age is missing
+           
+          </ul>
+          
+         <% } else { %>
+          <ul>
+            Age: <%= data[i].age %> 
+           
+          </ul>
+          
+         <% }%>
+      
+         <% if(typeof data[i].name &&
+         data[i].age && data[i].hobbies ===
+        'undefined') { %> 
+          <ul>
+            bad data 
+           
+          </ul>
+          
+          <% } else if(typeof data[i].hobbies === 'undefined') { %>
+            <ul>
+              Hobbies:  hobbies is missing 
+             
+            </ul>
+          
+          <% } else { %>
+            <ul>
+              Hobbies: <%= data[i].hobbies %>
+             
+            </ul>
+            
+          <% }%>
+      
 
       <br />
       <!-- end of for loop-->
       <% } %>
-    </li>
+    </ul>
 
     <script src="" async defer></script>
   </body>
